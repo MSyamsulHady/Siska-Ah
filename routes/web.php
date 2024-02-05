@@ -17,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('frontend.home');
 // });
-Route::controller(LandingController::class)->group(function(){
-    Route::get('/','home')->name('home');
-    Route::get('/bk','bk')->name('bimbingan_konseling');
-    Route::get('/pendaftaran','pendaftaran')->name('pendaftaran');
-    Route::get('/prestasi','prestasi')->name('prestasi');
-    Route::get('/kegiatan','kegiatan')->name('kegiatan');
+Route::controller(LandingController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/bk', 'bk')->name('bimbingan_konseling');
+    Route::get('/pendaftaran', 'pendaftaran')->name('pendaftaran');
+    Route::get('/prestasi', 'prestasi')->name('prestasi');
+    Route::get('/kegiatan', 'kegiatan')->name('kegiatan');
 });
+Route::get('/dashboard', function () {
+    return view('backend.dashboard');
+})->name('dashboard');
