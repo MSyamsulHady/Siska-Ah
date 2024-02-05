@@ -6,6 +6,7 @@
     <title>Dashboard | Al- Hasanain</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{ asset('asset_backend') }}/img/logo/ah.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ asset('asset_backend/css/fonts.css') }}">
 
     <!-- Fonts and icons -->
     <script src="{{ asset('asset_backend') }}/js/plugin/webfont/webfont.min.js"></script>

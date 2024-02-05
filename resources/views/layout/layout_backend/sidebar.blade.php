@@ -7,55 +7,6 @@
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
-                    {{-- <div class="collapse" id="dashboard">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="index-2.html">
-                                    <span class="sub-item">Dashboard 1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo2/index-2.html">
-                                    <span class="sub-item">Dashboard 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo3/index-2.html">
-                                    <span class="sub-item">Dashboard 3</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo4/index-2.html">
-                                    <span class="sub-item">Dashboard 4</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo5/index-2.html">
-                                    <span class="sub-item">Dashboard 5</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo6/index-2.html">
-                                    <span class="sub-item">Dashboard 6</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo7/index-2.html">
-                                    <span class="sub-item">Dashboard 7</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo8/index-2.html">
-                                    <span class="sub-item">Dashboard 8</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../demo9/index-2.html">
-                                    <span class="sub-item">Dashboard 9</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div> --}}
                 </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
