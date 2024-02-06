@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,9 @@ Route::controller(LandingController::class)->group(function () {
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'login')->name('login');
+    Route::post('prosesLogin', 'proseslogin')->name('proseslogin');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});

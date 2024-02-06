@@ -1,5 +1,5 @@
 <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
+    <div class="container d-flex align-items-end">
         <div class="logoah">
             <img src="assets/img/kol.png" style="width: 50%" >
         </div>
@@ -21,7 +21,6 @@
       </nav>
       {{--  <!-- .navbar -->  --}}
       {{--  <a href="courses.html" class="get-started-btn text-white">Login</a>  --}}
-
 
       <i class="bi bi-list mobile-nav-toggle"></i>
     </div>
