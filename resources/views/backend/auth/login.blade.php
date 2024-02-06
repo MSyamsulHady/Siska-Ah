@@ -68,6 +68,26 @@
     </form>
 	</div>
 	<script src="asset_backend/js/core/jquery.3.2.1.min.js"></script>
+	<!-- sweet alert -->
+	<script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
+	<script>
+    $('#login').click(function(e) {
+					swal({
+						title: "login Berhasil!",
+						icon: "success",
+						buttons: {
+							confirm: {
+								text: "OK",
+								value: true,
+								visible: true,
+								className: "btn btn-success",
+								closeModal: true
+							}
+						}
+					});
+				});
+
+    </script>
 	<script src="asset_backend/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 	<script src="asset_backend/js/core/popper.min.js"></script>
 	<script src="asset_backend/js/core/bootstrap.min.js"></script>

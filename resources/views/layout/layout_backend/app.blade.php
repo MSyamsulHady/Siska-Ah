@@ -678,25 +678,7 @@
    <!-- Sweet Alert -->
     <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
       <!-- sweet alert login   -->
-    <script>
-    $('#login').click(function(e) {
-					swal({
-						title: "Good job!",
-						text: "You clicked the button!",
-						icon: "success",
-						buttons: {
-							confirm: {
-								text: "Confirm Me",
-								value: true,
-								visible: true,
-								className: "btn btn-success",
-								closeModal: true
-							}
-						}
-					});
-				});
-
-    </script>
+  
       <!-- Owl Carousel -->  
     <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
