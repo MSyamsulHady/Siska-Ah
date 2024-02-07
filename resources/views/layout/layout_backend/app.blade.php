@@ -36,6 +36,8 @@
 </head>
 
 <body>
+    <div class="msg-data" data-msg="{{ Session::get('msg') }}" data-type="{{ Session::get('type') }}"></div>
+
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
@@ -126,7 +128,8 @@
                                                     class="avatar-img rounded-circle border border-white">
                                             </div>
                                             <div class="avatar">
-                                                <img src="{{ asset('asset_backend') }}/img/chadengle.jpg" alt="..."
+                                                <img src="{{ asset('asset_backend') }}/img/chadengle.jpg"
+                                                    alt="..."
                                                     class="avatar-img rounded-circle border border-white">
                                             </div>
                                             <div class="avatar">
@@ -605,147 +608,127 @@
     <script src="{{ asset('asset_backend') }}/js/plugin/select2/select2.full.min.js"></script>
 
     <!-- Sweet Alert -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
-    <<<<<<< HEAD <!-- sweet alert logout -->
-        <script>
-            $('#logout').click(function(e) {
-                        swal({
-                                title: " Berhasil logout !",
-                                icon: "success",
-                                buttons: {
-                                    confirm: {
-                                        text: "OK",
-                                        value: true,
-                                        visible: true,
-                                        className: "btn btn-info",
-                                        closeModal: true
-                                    }
-                                }
-                            }) ===
-                            === = <
-                            !--sweet alert login-- >
-                            <
-                            script >
-                            $('#login').click(function(e) {
-                                swal({
-                                    title: "Good job!",
-                                    text: "You clicked the button!",
-                                    icon: "success",
-                                    buttons: {
-                                        confirm: {
-                                            text: "Confirm Me",
-                                            value: true,
-                                            visible: true,
-                                            className: "btn btn-success",
-                                            closeModal: true
-                                        }
-                                    }
-                                }); >>>
-                                >>> > 3 edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
-                            });
-        </script>
-        <!-- Owl Carousel -->
-        <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
-
-        <!-- Magnific Popup -->
-        <script src="{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
-
-        <!-- Atlantis JS -->
-        <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
-        <script>
-            Circles.create({
-                id: 'circles-1',
-                radius: 45,
-                value: 60,
-                maxValue: 100,
-                width: 7,
-                text: 5,
-                colors: ['#f1f1f1', '#FF9E27'],
-                duration: 400,
-                wrpClass: 'circles-wrp',
-                textClass: 'circles-text',
-                styleWrapper: true,
-                styleText: true
-            })
-
-            Circles.create({
-                id: 'circles-2',
-                radius: 45,
-                value: 70,
-                maxValue: 100,
-                width: 7,
-                text: 36,
-                colors: ['#f1f1f1', '#2BB930'],
-                duration: 400,
-                wrpClass: 'circles-wrp',
-                textClass: 'circles-text',
-                styleWrapper: true,
-                styleText: true
-            })
-
-            Circles.create({
-                id: 'circles-3',
-                radius: 45,
-                value: 40,
-                maxValue: 100,
-                width: 7,
-                text: 12,
-                colors: ['#f1f1f1', '#F25961'],
-                duration: 400,
-                wrpClass: 'circles-wrp',
-                textClass: 'circles-text',
-                styleWrapper: true,
-                styleText: true
-            })
-
-            var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-            var mytotalIncomeChart = new Chart(totalIncomeChart, {
-                type: 'bar',
-                data: {
-                    labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-                    datasets: [{
-                        label: "Total Income",
-                        backgroundColor: '#ff9e27',
-                        borderColor: 'rgb(23, 125, 255)',
-                        data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false,
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                display: false //this will remove only the label
-                            },
-                            gridLines: {
-                                drawBorder: false,
-                                display: false
-                            }
-                        }],
-                        xAxes: [{
-                            gridLines: {
-                                drawBorder: false,
-                                display: false
-                            }
-                        }]
-                    },
+    <script>
+        $('#logout').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "Apakah Anda Yakin?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya."
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = $(this).attr('href');
                 }
             });
+        });
+    </script>
+    <!-- Owl Carousel -->
+    <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
-            $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-                type: 'line',
-                height: '70',
-                width: '100%',
-                lineWidth: '2',
-                lineColor: '#ffa534',
-                fillColor: 'rgba(255, 165, 52, .14)'
-            });
-        </script>
+    <!-- Magnific Popup -->
+    <script src="{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Atlantis JS -->
+    <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
+    <script src="asset_backend/js/alert-init.js"></script>
+
+    <script>
+        Circles.create({
+            id: 'circles-1',
+            radius: 45,
+            value: 60,
+            maxValue: 100,
+            width: 7,
+            text: 5,
+            colors: ['#f1f1f1', '#FF9E27'],
+            duration: 400,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            styleWrapper: true,
+            styleText: true
+        })
+
+        Circles.create({
+            id: 'circles-2',
+            radius: 45,
+            value: 70,
+            maxValue: 100,
+            width: 7,
+            text: 36,
+            colors: ['#f1f1f1', '#2BB930'],
+            duration: 400,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            styleWrapper: true,
+            styleText: true
+        })
+
+        Circles.create({
+            id: 'circles-3',
+            radius: 45,
+            value: 40,
+            maxValue: 100,
+            width: 7,
+            text: 12,
+            colors: ['#f1f1f1', '#F25961'],
+            duration: 400,
+            wrpClass: 'circles-wrp',
+            textClass: 'circles-text',
+            styleWrapper: true,
+            styleText: true
+        })
+
+        var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
+
+        var mytotalIncomeChart = new Chart(totalIncomeChart, {
+            type: 'bar',
+            data: {
+                labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
+                datasets: [{
+                    label: "Total Income",
+                    backgroundColor: '#ff9e27',
+                    borderColor: 'rgb(23, 125, 255)',
+                    data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            display: false //this will remove only the label
+                        },
+                        gridLines: {
+                            drawBorder: false,
+                            display: false
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            drawBorder: false,
+                            display: false
+                        }
+                    }]
+                },
+            }
+        });
+
+        $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
+            type: 'line',
+            height: '70',
+            width: '100%',
+            lineWidth: '2',
+            lineColor: '#ffa534',
+            fillColor: 'rgba(255, 165, 52, .14)'
+        });
+    </script>
 </body>
 
 <!-- Mirrored from themekita.com/demo-atlantis-bootstrap/livepreview/examples/demo1/sidebar-style-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 21:54:08 GMT -->

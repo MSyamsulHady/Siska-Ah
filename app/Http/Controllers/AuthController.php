@@ -40,16 +40,16 @@ class AuthController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
             if ($user->role == 'admin') {
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with(['msg' => 'Login Berhasil.', 'type' => 'success']);
             } elseif ($user->role == 'siswa') {
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with(['msg' => 'Login Berhasil.', 'type' => 'success']);
             } elseif ($user->role == 'guru') {
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with(['msg' => 'Login Berhasil.', 'type' => 'success']);
             } else {
                 return redirect()->intended('login');
             }
         } else {
-            return response()->json(['message' => 'Your success message']);;
+            return  redirect()->back()->with(['msg' => 'Data Tidak Ditemukan.', 'type' => 'error']);
         }
     }
     //logout
