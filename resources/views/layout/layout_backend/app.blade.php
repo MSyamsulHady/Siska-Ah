@@ -539,80 +539,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        <!-- Custom template | don't include it in your project! -->
-        <div class="custom-template">
-            <div class="title">Settings</div>
-            <div class="custom-content">
-                <div class="switcher">
-                    <div class="switch-block">
-                        <h4>Logo Header</h4>
-                        <div class="btnSwitch">
-                            <button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
-                            <button type="button" class="selected changeLogoHeaderColor" data-color="blue"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="green"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="red"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="white"></button>
-                            <br />
-                            <button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
-                            <button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
-                        </div>
-                    </div>
-                    <div class="switch-block">
-                        <h4>Navbar Header</h4>
-                        <div class="btnSwitch">
-                            <button type="button" class="changeTopBarColor" data-color="dark"></button>
-                            <button type="button" class="changeTopBarColor" data-color="blue"></button>
-                            <button type="button" class="changeTopBarColor" data-color="purple"></button>
-                            <button type="button" class="changeTopBarColor" data-color="light-blue"></button>
-                            <button type="button" class="changeTopBarColor" data-color="green"></button>
-                            <button type="button" class="changeTopBarColor" data-color="orange"></button>
-                            <button type="button" class="changeTopBarColor" data-color="red"></button>
-                            <button type="button" class="changeTopBarColor" data-color="white"></button>
-                            <br />
-                            <button type="button" class="changeTopBarColor" data-color="dark2"></button>
-                            <button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
-                            <button type="button" class="changeTopBarColor" data-color="purple2"></button>
-                            <button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
-                            <button type="button" class="changeTopBarColor" data-color="green2"></button>
-                            <button type="button" class="changeTopBarColor" data-color="orange2"></button>
-                            <button type="button" class="changeTopBarColor" data-color="red2"></button>
-                        </div>
-                    </div>
-                    <div class="switch-block">
-                        <h4>Sidebar</h4>
-                        <div class="btnSwitch">
-                            <button type="button" class="selected changeSideBarColor" data-color="white"></button>
-                            <button type="button" class="changeSideBarColor" data-color="dark"></button>
-                            <button type="button" class="changeSideBarColor" data-color="dark2"></button>
-                        </div>
-                    </div>
-                    <div class="switch-block">
-                        <h4>Background</h4>
-                        <div class="btnSwitch">
-                            <button type="button" class="changeBackgroundColor" data-color="bg2"></button>
-                            <button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
-                            <button type="button" class="changeBackgroundColor" data-color="bg3"></button>
-                            <button type="button" class="changeBackgroundColor" data-color="dark"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="custom-toggle">
-                <i class="flaticon-settings"></i>
-            </div>
-        </div>
-=======
->>>>>>> 3edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
-        <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
     <script src="{{ asset('asset_backend') }}/js/core/jquery.3.2.1.min.js"></script>
@@ -680,146 +606,146 @@
 
     <!-- Sweet Alert -->
     <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
-<<<<<<< HEAD
-    <!-- sweet alert logout   -->
-    <script>
-        $('#logout').click(function(e) {
-            swal({
-                title: " Berhasil logout !",
-                icon: "success",
-                buttons: {
-                    confirm: {
-                        text: "OK",
-                        value: true,
-                        visible: true,
-                        className: "btn btn-info",
-                        closeModal: true
-                    }
-                }
+    <<<<<<< HEAD <!-- sweet alert logout -->
+        <script>
+            $('#logout').click(function(e) {
+                        swal({
+                                title: " Berhasil logout !",
+                                icon: "success",
+                                buttons: {
+                                    confirm: {
+                                        text: "OK",
+                                        value: true,
+                                        visible: true,
+                                        className: "btn btn-info",
+                                        closeModal: true
+                                    }
+                                }
+                            }) ===
+                            === = <
+                            !--sweet alert login-- >
+                            <
+                            script >
+                            $('#login').click(function(e) {
+                                swal({
+                                    title: "Good job!",
+                                    text: "You clicked the button!",
+                                    icon: "success",
+                                    buttons: {
+                                        confirm: {
+                                            text: "Confirm Me",
+                                            value: true,
+                                            visible: true,
+                                            className: "btn btn-success",
+                                            closeModal: true
+                                        }
+                                    }
+                                }); >>>
+                                >>> > 3 edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
+                            });
+        </script>
+        <!-- Owl Carousel -->
+        <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
+
+        <!-- Magnific Popup -->
+        <script src="{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Atlantis JS -->
+        <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
+        <script>
+            Circles.create({
+                id: 'circles-1',
+                radius: 45,
+                value: 60,
+                maxValue: 100,
+                width: 7,
+                text: 5,
+                colors: ['#f1f1f1', '#FF9E27'],
+                duration: 400,
+                wrpClass: 'circles-wrp',
+                textClass: 'circles-text',
+                styleWrapper: true,
+                styleText: true
             })
-=======
-    <!-- sweet alert login   -->
-    <script>
-        $('#login').click(function(e) {
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "success",
-                buttons: {
-                    confirm: {
-                        text: "Confirm Me",
-                        value: true,
-                        visible: true,
-                        className: "btn btn-success",
-                        closeModal: true
-                    }
+
+            Circles.create({
+                id: 'circles-2',
+                radius: 45,
+                value: 70,
+                maxValue: 100,
+                width: 7,
+                text: 36,
+                colors: ['#f1f1f1', '#2BB930'],
+                duration: 400,
+                wrpClass: 'circles-wrp',
+                textClass: 'circles-text',
+                styleWrapper: true,
+                styleText: true
+            })
+
+            Circles.create({
+                id: 'circles-3',
+                radius: 45,
+                value: 40,
+                maxValue: 100,
+                width: 7,
+                text: 12,
+                colors: ['#f1f1f1', '#F25961'],
+                duration: 400,
+                wrpClass: 'circles-wrp',
+                textClass: 'circles-text',
+                styleWrapper: true,
+                styleText: true
+            })
+
+            var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
+
+            var mytotalIncomeChart = new Chart(totalIncomeChart, {
+                type: 'bar',
+                data: {
+                    labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
+                    datasets: [{
+                        label: "Total Income",
+                        backgroundColor: '#ff9e27',
+                        borderColor: 'rgb(23, 125, 255)',
+                        data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false,
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                display: false //this will remove only the label
+                            },
+                            gridLines: {
+                                drawBorder: false,
+                                display: false
+                            }
+                        }],
+                        xAxes: [{
+                            gridLines: {
+                                drawBorder: false,
+                                display: false
+                            }
+                        }]
+                    },
                 }
             });
->>>>>>> 3edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
-        });
-    </script>
-    <!-- Owl Carousel -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
-    <!-- Magnific Popup -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Atlantis JS -->
-    <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
-    <script>
-        Circles.create({
-            id: 'circles-1',
-            radius: 45,
-            value: 60,
-            maxValue: 100,
-            width: 7,
-            text: 5,
-            colors: ['#f1f1f1', '#FF9E27'],
-            duration: 400,
-            wrpClass: 'circles-wrp',
-            textClass: 'circles-text',
-            styleWrapper: true,
-            styleText: true
-        })
-
-        Circles.create({
-            id: 'circles-2',
-            radius: 45,
-            value: 70,
-            maxValue: 100,
-            width: 7,
-            text: 36,
-            colors: ['#f1f1f1', '#2BB930'],
-            duration: 400,
-            wrpClass: 'circles-wrp',
-            textClass: 'circles-text',
-            styleWrapper: true,
-            styleText: true
-        })
-
-        Circles.create({
-            id: 'circles-3',
-            radius: 45,
-            value: 40,
-            maxValue: 100,
-            width: 7,
-            text: 12,
-            colors: ['#f1f1f1', '#F25961'],
-            duration: 400,
-            wrpClass: 'circles-wrp',
-            textClass: 'circles-text',
-            styleWrapper: true,
-            styleText: true
-        })
-
-        var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
-
-        var mytotalIncomeChart = new Chart(totalIncomeChart, {
-            type: 'bar',
-            data: {
-                labels: ["S", "M", "T", "W", "T", "F", "S", "S", "M", "T"],
-                datasets: [{
-                    label: "Total Income",
-                    backgroundColor: '#ff9e27',
-                    borderColor: 'rgb(23, 125, 255)',
-                    data: [6, 4, 9, 5, 4, 6, 4, 3, 8, 10],
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {
-                    display: false,
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            display: false //this will remove only the label
-                        },
-                        gridLines: {
-                            drawBorder: false,
-                            display: false
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            drawBorder: false,
-                            display: false
-                        }
-                    }]
-                },
-            }
-        });
-
-        $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
-            type: 'line',
-            height: '70',
-            width: '100%',
-            lineWidth: '2',
-            lineColor: '#ffa534',
-            fillColor: 'rgba(255, 165, 52, .14)'
-        });
-    </script>
+            $('#lineChart').sparkline([105, 103, 123, 100, 95, 105, 115], {
+                type: 'line',
+                height: '70',
+                width: '100%',
+                lineWidth: '2',
+                lineColor: '#ffa534',
+                fillColor: 'rgba(255, 165, 52, .14)'
+            });
+        </script>
 </body>
 
 <!-- Mirrored from themekita.com/demo-atlantis-bootstrap/livepreview/examples/demo1/sidebar-style-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 21:54:08 GMT -->
