@@ -21,7 +21,7 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard');
             } elseif ($user->role == 'siswa') {
                 return redirect()->intended('dashboard');
-            }else{
+            } else {
                 return redirect()->intended('login');
             }
         }
@@ -45,9 +45,11 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard');
             } elseif ($user->role == 'guru') {
                 return redirect()->intended('dashboard');
-            }else {
+            } else {
                 return redirect()->intended('login');
             }
+        } else {
+            return response()->json(['message' => 'Your success message']);;
         }
     }
     //logout
@@ -57,6 +59,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

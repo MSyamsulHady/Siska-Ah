@@ -100,7 +100,7 @@
             </footer>
         </div>
 
-         <div class="quick-sidebar">
+        <div class="quick-sidebar">
             <a href="#" class="close-quick-sidebar">
                 <i class="flaticon-cross"></i>
             </a>
@@ -608,7 +608,7 @@
             <div class="custom-toggle">
                 <i class="flaticon-settings"></i>
             </div>
-        </div> 
+        </div>
         <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
@@ -675,11 +675,27 @@
     <!-- Select2 -->
     <script src="{{ asset('asset_backend') }}/js/plugin/select2/select2.full.min.js"></script>
 
-   <!-- Sweet Alert -->
+    <!-- Sweet Alert -->
     <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
-      <!-- sweet alert login   -->
-  
-      <!-- Owl Carousel -->  
+    <!-- sweet alert logout   -->
+    <script>
+        $('#logout').click(function(e) {
+            swal({
+                title: " Berhasil logout !",
+                icon: "success",
+                buttons: {
+                    confirm: {
+                        text: "OK",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-info",
+                        closeModal: true
+                    }
+                }
+            })
+        });
+    </script>
+    <!-- Owl Carousel -->
     <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
     <!-- Magnific Popup -->
