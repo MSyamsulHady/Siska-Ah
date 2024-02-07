@@ -16,7 +16,7 @@
                 </li>
                 <li class="nav-item">
                     <a data-toggle="collapse" href="">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-database"></i>
                         <p>Data Siswa</p>
                     </a>
                 </li>
@@ -26,9 +26,15 @@
                         <p>Kegiatan Siswa</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="">
+                        <i class="fas fa-graduation-cap"></i>
+                        <p>Prestasi</p>
+                    </a>
+                </li>
                 <li class="nav-item  ">
                     <a data-toggle="collapse" href="">
-                        <i class="fas fa-th-list"></i>
+                        <i class="fa fa-calendar"></i>
                         <p>Absensi</p>
                     </a>
                 </li>

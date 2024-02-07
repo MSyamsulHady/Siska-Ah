@@ -539,6 +539,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <!-- Custom template | don't include it in your project! -->
         <div class="custom-template">
             <div class="title">Settings</div>
@@ -609,6 +610,8 @@
                 <i class="flaticon-settings"></i>
             </div>
         </div>
+=======
+>>>>>>> 3edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
         <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
@@ -677,6 +680,7 @@
 
     <!-- Sweet Alert -->
     <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
+<<<<<<< HEAD
     <!-- sweet alert logout   -->
     <script>
         $('#logout').click(function(e) {
@@ -693,6 +697,25 @@
                     }
                 }
             })
+=======
+    <!-- sweet alert login   -->
+    <script>
+        $('#login').click(function(e) {
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                buttons: {
+                    confirm: {
+                        text: "Confirm Me",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-success",
+                        closeModal: true
+                    }
+                }
+            });
+>>>>>>> 3edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
         });
     </script>
     <!-- Owl Carousel -->
