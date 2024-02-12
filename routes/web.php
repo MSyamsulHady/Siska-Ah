@@ -28,6 +28,9 @@ Route::controller(LandingController::class)->group(function () {
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->name('dashboard');
+Route::get('/datasiswa', function () {
+    return view('backend.bk.data_siswa');
+})->name('datasiswa');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
