@@ -36,6 +36,8 @@
 </head>
 
 <body>
+    <div class="msg-data" data-msg="{{ Session::get('msg') }}" data-type="{{ Session::get('type') }}"></div>
+
     <div class="wrapper">
         <div class="main-header">
             <!-- Logo Header -->
@@ -126,7 +128,8 @@
                                                     class="avatar-img rounded-circle border border-white">
                                             </div>
                                             <div class="avatar">
-                                                <img src="{{ asset('asset_backend') }}/img/chadengle.jpg" alt="..."
+                                                <img src="{{ asset('asset_backend') }}/img/chadengle.jpg"
+                                                    alt="..."
                                                     class="avatar-img rounded-circle border border-white">
                                             </div>
                                             <div class="avatar">
@@ -605,61 +608,33 @@
     <script src="{{ asset('asset_backend') }}/js/plugin/select2/select2.full.min.js"></script>
 
     <!-- Sweet Alert -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
-    <!-- sweet alert logout -->
     <script>
         $('#logout').click(function(e) {
-                    swal({
-                            title: " Berhasil logout !",
-                            icon: "success",
-                            buttons: {
-                                confirm: {
-                                    text: "OK",
-                                    value: true,
-                                    visible: true,
-                                    className: "btn btn-info",
-                                    closeModal: true
-                                }
-                            }
-                        }) ===
-                        ===
-                        = < !--sweet alert login-- >
-                        <
-                        script >
-                        $('#login').click(function(e) {
-                            swal({
-                                title: "Good job!",
-                                text: "You clicked the button!",
-                                icon: "success",
-                                buttons: {
-                                    confirm: {
-                                        text: "Confirm Me",
-                                        value: true,
-                                        visible: true,
-                                        className: "btn btn-success",
-                                        closeModal: true
-                                    }
-                                }
-                            }); >>>
-                            >>>
-                            >
-                            3 edede7eae0043ec82ab3b6cbf6efa3fea23ff4d
-                        }); <
-                    /> <!--Owl Carousel-- >
-                    <
-                    script src = "{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js" >
-                        <
-                        />
-
-                        <
-                        !--Magnific Popup-- >
-                        <
-                        script src =
-                        "{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js" >
+            e.preventDefault();
+            Swal.fire({
+                title: "Apakah Anda Yakin?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya."
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = $(this).attr('href');
+                }
+            });
+        });
     </script>
+    <!-- Owl Carousel -->
+    <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
+    <!-- Magnific Popup -->
+    <script src="{{ asset('asset_backend') }}/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Atlantis JS -->
     <script src="{{ asset('asset_backend') }}/js/atlantis.min.js"></script>
+    <script src="asset_backend/js/alert-init.js"></script>
+
     <script>
         Circles.create({
             id: 'circles-1',

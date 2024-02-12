@@ -32,7 +32,7 @@
 </head>
 
 <body class="login">
-
+    <div class="msg-data" data-msg="{{ Session::get('msg') }}" data-type="{{ Session::get('type') }}"></div>
     <div class="wrapper wrapper-login wrapper-login-full p-0">
         <div
             class="login-aside w-50 d-flex flex-column align-items-center justify-content-center text-center bg-secondary-gradient">
@@ -89,67 +89,11 @@
     </div>
     <script src="asset_backend/js/core/jquery.3.2.1.min.js"></script>
     <!-- sweet alert -->
-    <script src="{{ asset('asset_backend') }}/js/plugin/sweetalert/sweetalert.min.js"></script>
-    <script>
-        $('#login').click(function(e) {
-            swal({
-                title: "login Berhasil!",
-                icon: "success",
-                buttons: {
-                    confirm: {
-                        text: "OK",
-                        value: true,
-                        visible: true,
-                        className: "btn btn-success",
-                        closeModal: true
-                    }
-                }
-            });
-        });
-        // $.ajax({
-        //     url: '/your-endpoint', // Replace with your actual endpoint
-        //     method: 'POST',
-        //     success: function(response) {
-        //         // Handle success response
-        //         Swal.fire({
-        //             icon: 'success',
-        //             title: 'login Berhasil',
-        //             text: response.message,
-        //         });
-        //     },
-
-        // $(document).ready(function() {
-        //     $('#login').submit(function(e) {
-        //         e.preventDefault();
-
-        //         // Perform AJAX login request
-        //         $.ajax({
-        //             url: $(this).attr('action'),
-        //             type: 'POST',
-        //             data: $(this).serialize(),
-        //             success: function(response) {
-        //                 // Handle success response
-        //                 Swal.fire({
-        //                     icon: 'success',
-        //                     title: 'Login Successful!',
-        //                     text: response.message,
-        //                 });
-        //             },
-        //             error: function(error) {
-        //                 // Handle error response
-        //                 console.error('Error:', error);
-        //                 Swal.fire({
-        //                     icon: 'error',
-        //                     title: 'Login Failed!',
-        //                     text: 'Invalid credentials.',
-        //                 });
-        //             }
-        //         });
-        //     });
-        // });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script></script>
     <script src="asset_backend/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="asset_backend/js/core/popper.min.js"></script>
+    <script src="asset_backend/js/alert-init.js"></script>
     <script src="asset_backend/js/core/bootstrap.min.js"></script>
     <script src="asset_backend/js/atlantis.min.js"></script>
 
