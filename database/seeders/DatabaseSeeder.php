@@ -28,22 +28,32 @@ class DatabaseSeeder extends Seeder
         $token = Str::random(64);
         $data = array(
             [
-                'username'=>'admin',
+                'username' => 'admin',
                 'password' => Hash::make('123456'),
                 'role' => 'admin',
             ],
             [
-                'username'=>'palahady',
+                'username' => 'palahady',
                 'password' => Hash::make('123456'),
                 'role' => 'guru',
             ],
             [
-                'username'=>'firman',
+                'username' => 'firman',
                 'password' => Hash::make('123456'),
                 'role' => 'siswa',
             ],
+            [
+                'username' => 'hasyim',
+                'password' => Hash::make('123456'),
+                'role' => 'kepsek',
+            ],
+            // [
+            //     'username' => 'riki',
+            //     'password' => Hash::make('123456'),
+            //     'role' => 'wakasek',
+            // ],
+
         );
         User::insert($data);
     }
-    }
-
+}
