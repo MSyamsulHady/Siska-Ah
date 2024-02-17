@@ -29,95 +29,21 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nim</th>
+                                        <th>NISN</th>
+                                        <th>NIS</th>
+                                        <th>NIK</th>
                                         <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>Gender</th>
+                                        <th>alamat</th>
+                                        <th>Jenis Kelamin</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>No HP</th>
-                                        <th>Email</th>
+                                        <th>Orang Tua</th>
+                                        <th>no HP</th>
+                                        <th>Jurusan</th>
+                                        <th>Foto</th>
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>TI19220028</td>
-                                        <td>Firman Haris</td>
-                                        <td>Sendong</td>
-                                        <td>Laki Laki</td>
-                                        <td>28/11/2001</td>
-                                        <td>087861815562</td>
-                                        <td>firmanharis281101@gmail.com</td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-danger" data-original-title="Remove">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-success" data-original-title="Detail">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>TI19220028</td>
-                                        <td>Firman Haris</td>
-                                        <td>Sendong</td>
-                                        <td>Laki Laki</td>
-                                        <td>28/11/2001</td>
-                                        <td>087861815562</td>
-                                        <td>firmanharis281101@gmail.com</td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-danger" data-original-title="Remove">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-success" data-original-title="Detail">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>TI19220028</td>
-                                        <td>Firman Haris</td>
-                                        <td>Sendong</td>
-                                        <td>Laki Laki</td>
-                                        <td>28/11/2001</td>
-                                        <td>087861815562</td>
-                                        <td>firmanharis281101@gmail.com</td>
-                                        <td>
-                                            <div class="form-button-action">
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-danger" data-original-title="Remove">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <button type="button" data-toggle="tooltip" title=""
-                                                    class="btn btn-link btn-success" data-original-title="Detail">
-                                                    <i class="fa fa-eye"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <!-- Modal Add -->
@@ -126,7 +52,7 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Input Data Siswa</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -141,21 +67,69 @@
                                                                 name="nisn" placeholder="NISN">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="no_kk">No KK</label>
-                                                            <input type="text" class="form-control" id="no_kk"
-                                                                name="no_kk" placeholder="No KK">
+                                                            <label for="nama">Nama Lengkap</label>
+                                                            <input type="text" class="form-control" id="nama"
+                                                                name="nama" placeholder="Nama Lengkap">
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label>Jenis Kelamin</label><br />
+                                                            <label class="form-radio-label">
+                                                                <input class="form-radio-input" type="radio"
+                                                                    name="optionsRadios" value="">
+                                                                <span class="form-radio-sign">Laki-Laki</span>
+                                                            </label>
+                                                            <label class="form-radio-label ml-3">
+                                                                <input class="form-radio-input" type="radio"
+                                                                    name="optionsRadios" value="">
+                                                                <span class="form-radio-sign">Perempuan</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-group mt-3">
+                                                            <label for="nama">Nama Orang Tua / Wali</label>
+                                                            <input type="text" class="form-control" id="nama"
+                                                                name="nama" placeholder="Nama Lengkap">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlFile1">Foto</label>
+                                                            <input type="file" class="form-control-file"
+                                                                id="exampleFormControlFile1">
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col ">
                                                         <div class="form-group">
                                                             <label for="nis">NIS</label>
                                                             <input type="text" class="form-control" id="nis"
                                                                 name="nis" placeholder="NIS">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="nama">Nama Lengkap</label>
-                                                            <input type="text" class="form-control" id="nama"
+                                                            <label for="no_kk">No KK</label>
+                                                            <input type="text" class="form-control" id="no_kk"
+                                                                name="no_kk" placeholder="No KK">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="nama">Tanggal Lahir</label>
+                                                            <input type="date" class="form-control" id="nama"
                                                                 name="nama" placeholder="Nama Lengkap">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">Jurusan</label>
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option>RPL</option>
+                                                                <option>PERHOTELAN</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="nama">No HP</label>
+                                                            <input type="text" class="form-control" id="nama"
+                                                                name="nama" placeholder="No HP">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg">
+                                                        <div class="form-group">
+                                                            <label for="">Alamat</label>
+                                                            <textarea name="alamat" id="" class="form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

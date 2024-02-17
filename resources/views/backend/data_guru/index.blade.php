@@ -59,9 +59,9 @@
                                                 <div class="row">
                                                     <div class="col-lg">
                                                         <div class="form-group">
-                                                            <label for="nip">NIP</label>
-                                                            <input type="text" class="form-control" id="nip"
-                                                                name="nip" placeholder="NIP">
+                                                            <label for="nuptk">NUPTK</label>
+                                                            <input type="text" class="form-control" id="nuptk"
+                                                                name="nuptk" placeholder="NUPTK">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="nama">Nama Lengkap</label>
@@ -107,7 +107,7 @@
                                                     <div class="col-lg">
                                                         <div class="form-group">
                                                             <label for="">Alamat</label>
-                                                            <textarea name="alamat" id="" class="form-control"></textarea>
+                                                            <textarea name="alamat" class="form-control"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

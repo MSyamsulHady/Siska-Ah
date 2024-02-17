@@ -10,4 +10,8 @@ class SiswaController extends Controller
     {
         return view('backend.bk.data_siswa');
     }
+    public function tambahSiswa(Request $request)
+    {
+        $this->validate($request, []);
+    }
 }

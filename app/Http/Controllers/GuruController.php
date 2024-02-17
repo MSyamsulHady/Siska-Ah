@@ -14,7 +14,6 @@ class GuruController extends Controller
     public function tambah_guru(Request $request)
     {
         $this->validate($request, [
-            'nip' => 'required',
             'nama' => 'required',
             'alamat' => 'required',
             'tgl_lahir' => 'required',
@@ -24,13 +23,15 @@ class GuruController extends Controller
         ]);
         try {
             $data = new Guru();
-            $data->nip = $request->nip;
+            $data->nuptk = $request->nuptk;
             $data->nama = $request->nama;
             $data->alamat = $request->alamat;
             $data->tgl_lahir = $request->tgl_lahir;
             $data->tlp = $request->tlp;
             $data->gender = $request->gender;
             $data->pend_terakhir = $request->pend_terakhir;
+            $data->save();
+            return redirect('');
         } catch (\Exception $e) {
         }
     }
