@@ -74,8 +74,8 @@
                     </span>
                     <h4 class="text-section">Guru</h4>
                 </li>
-                <li class="nav-item  ">
-                    <a data-toggle="collapse" href="">
+                <li class="nav-item {{ request()->is('dataguru') ? 'active' : '' }}">
+                    <a href="{{ route('dataguru') }}">
                         <i class="fas fa-database"></i>
                         <p>Data Guru</p>
                     </a>

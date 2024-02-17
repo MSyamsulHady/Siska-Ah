@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
@@ -46,4 +47,7 @@ Route::controller(PelajaranController::class)->group(function () {
 Route::controller(SiswaController::class)->group(function () {
 
     Route::get('/datasiswa', 'index')->name('datasiswa');
+});
+Route::controller(GuruController::class)->group(function () {
+    Route::get('/dataguru', 'index')->name('dataguru');
 });
