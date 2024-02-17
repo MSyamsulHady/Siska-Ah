@@ -47,11 +47,11 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'role' => 'kepsek',
             ],
-            // [
-            //     'username' => 'riki',
-            //     'password' => Hash::make('123456'),
-            //     'role' => 'wakasek',
-            // ],
+            [
+                'username' => 'riki',
+                'password' => Hash::make('123456'),
+                'role' => 'wakasek',
+            ],
 
         );
         User::insert($data);
