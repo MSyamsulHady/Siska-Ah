@@ -44,15 +44,25 @@
                                     @foreach ($guru as $gr)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $gr->nuptk }}</td>
+                                            <td>
+                                                @empty($gr->nuptk)
+                                                    -
+                                                @endempty
+                                                {{ $gr->nuptk }}
+                                            </td>
                                             <td>{{ $gr->nama }}</td>
                                             <td>{{ $gr->alamat }}</td>
                                             <td>{{ $gr->tgl_lahir }}</td>
                                             <td>{{ $gr->gender }}</td>
                                             <td>{{ $gr->tlp }}</td>
                                             <td>{{ $gr->pend_terakhir }}</td>
-                                            <td><img src="{{ asset('Foto_guru/' . $gr->foto) }}" alt=""
-                                                    width="50"></td>
+                                            <td>
+                                                @empty($gr->nuptk)
+                                                    -
+                                                @endempty
+                                                <img src="{{ asset('Foto_guru/' . $gr->foto) }}" alt=""
+                                                    width="50">
+                                            </td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <button type="button" data-toggle="modal"
