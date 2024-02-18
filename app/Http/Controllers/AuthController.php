@@ -53,7 +53,7 @@ class AuthController extends Controller
                 return redirect()->intended('login');
             }
         } else {
-            return  redirect()->back()->with(['msg' => 'Data Tidak Ditemukan.', 'type' => 'error']);
+            return  redirect()->back()->with(['msg' => 'Username atau Password Salah', 'type' => 'error']);
         }
     }
     //logout

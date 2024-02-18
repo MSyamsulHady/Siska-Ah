@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tlp');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->string('pend_terakhir');
+            $table->string('foto');
             $table->timestamps();
         });
     }

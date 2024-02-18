@@ -29,17 +29,45 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NIP</th>
+                                        <th>NUPTK</th>
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Gender</th>
+                                        <th>Jenis Kelamin</th>
                                         <th>No HP</th>
                                         <th>Pendidikan Terakhir</th>
+                                        <th>Foto</th>
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($guru as $gr)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $gr->nuptk }}</td>
+                                            <td>{{ $gr->nama }}</td>
+                                            <td>{{ $gr->alamat }}</td>
+                                            <td>{{ $gr->tgl_lahir }}</td>
+                                            <td>{{ $gr->gender }}</td>
+                                            <td>{{ $gr->tlp }}</td>
+                                            <td>{{ $gr->pend_terakhir }}</td>
+                                            <td><img src="{{ asset('Foto_guru/' . $gr->foto) }}" alt=""
+                                                    width="50"></td>
+                                            <td>
+                                                <div class="form-button-action">
+                                                    <button type="button" data-toggle="modal"
+                                                        data-target="#ModalEdit{{ $gr->id_guru }}" title=""
+                                                        class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <button type="button" data-toggle="tooltip" title=""
+                                                        class="btn btn-link btn-danger" data-original-title="Hapus">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <!-- Modal Add -->
@@ -54,7 +82,9 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form method="post">
+                                        <form action="{{ route('insert_guru') }}" method="post"
+                                            enctype="multipart/form-data">
+                                            @csrf
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-lg">
@@ -72,12 +102,12 @@
                                                             <label>Jenis Kelamin</label><br />
                                                             <label class="form-radio-label">
                                                                 <input class="form-radio-input" type="radio"
-                                                                    name="optionsRadios" value="" checked="">
+                                                                    name="gender" value="laki-laki">
                                                                 <span class="form-radio-sign">Laki-Laki</span>
                                                             </label>
                                                             <label class="form-radio-label ml-3">
                                                                 <input class="form-radio-input" type="radio"
-                                                                    name="optionsRadios" value="">
+                                                                    name="gender" value="perempuan">
                                                                 <span class="form-radio-sign">Perempuan</span>
                                                             </label>
                                                         </div>
@@ -85,17 +115,17 @@
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="tlp">No HP</label>
-                                                            <input type="text" class="form-control" id="tlp"
-                                                                name="tlp" placeholder="No HP">
+                                                            <input type="text" class="form-control" name="tlp"
+                                                                placeholder="No HP">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="tgl_lahir">Tanggal Lahir</label>
-                                                            <input type="date" class="form-control" id="tgl_lahir"
-                                                                name="tgl_lahir">
+                                                            <input type="date" class="form-control" name="tgl_lahir">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlSelect1">Pendidikan</label>
-                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                            <label for="pend_terakhir">Pendidikan</label>
+                                                            <select class="form-control" name="pend_terakhir">
+                                                                <option selected> -- Pilih -- </option>
                                                                 <option>S1</option>
                                                                 <option>S2</option>
                                                                 <option>S3</option>
@@ -111,11 +141,20 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-lg">
+                                                        <div class="form-group">
+                                                            <label for="foto">Foto</label>
+                                                            <input type="file" class="form-control-file"
+                                                                name="foto" accept="image/*">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Tutup</button>
-                                                <button type="button" class="btn btn-primary">Simpan</button>
+                                                    data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
                                         </form>
 
@@ -123,6 +162,113 @@
                                 </div>
                             </div>
                             <!-- End Modal -->
+                            <!-- Modal Update -->
+                            @foreach ($guru as $gp)
+                                <div class="modal fade bd-example-modal-lg" id="ModalEdit{{ $gp->id_guru }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title text-center" id="exampleModalLabel">Form
+                                                    Edit Data Guru</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="/dataguru/update/{{ $gp->id_guru }}" method="post"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('put')
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <div class="form-group">
+                                                                <label for="nuptk">NUPTK</label>
+                                                                <input type="text" class="form-control" id="nuptk"
+                                                                    name="nuptk" placeholder="NUPTK"
+                                                                    value="{{ $gp->nuptk }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="nama">Nama Lengkap</label>
+                                                                <input type="text" class="form-control" id="nama"
+                                                                    name="nama" value="{{ $gp->nama }}">
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label>Jenis Kelamin</label><br />
+                                                                <label class="form-radio-label">
+                                                                    <input class="form-radio-input" type="radio"
+                                                                        name="gender" value="laki-laki"
+                                                                        {{ $gp->gender == 'laki-laki' ? 'checked' : '' }}>
+                                                                    <span class="form-radio-sign">Laki-Laki</span>
+                                                                </label>
+                                                                <label class="form-radio-label ml-3">
+                                                                    <input class="form-radio-input" type="radio"
+                                                                        name="gender" value="perempuan"
+                                                                        {{ $gp->gender == 'perempuan' ? 'checked' : '' }}>
+                                                                    <span class="form-radio-sign">Perempuan</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="tlp">No HP</label>
+                                                                <input type="text" class="form-control" name="tlp"
+                                                                    placeholder="No HP" value="{{ $gp->tlp }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="tgl_lahir">Tanggal Lahir</label>
+                                                                <input type="date" class="form-control"
+                                                                    name="tgl_lahir" value="{{ $gp->tgl_lahir }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="pend_terakhir">Pendidikan</label>
+                                                                <select class="form-control" name="pend_terakhir">
+                                                                    <option selected value="{{ $gp->pend_terakhir }}">
+                                                                        {{ $gp->pend_terakhir }}</option>
+                                                                    <option>S1</option>
+                                                                    <option>S2</option>
+                                                                    <option>S3</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <div class="form-group">
+                                                                <label for="">Alamat</label>
+                                                                <textarea name="alamat" class="form-control">{{ $gp->alamat }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <div class="form-group">
+                                                                <label for="foto">Foto</label>
+                                                                <input type="file" class="form-control-file"
+                                                                    name="foto" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <img src="{{ asset('Foto_guru/' . $gp->foto) }}"
+                                                                width="150px" height="auto" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal Update -->
+                            @endforeach
+
                         </div>
                     </div>
                 </div>

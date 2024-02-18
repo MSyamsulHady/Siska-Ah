@@ -114,6 +114,7 @@
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Jurusan</label>
                                                             <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option selected> -- Pilih -- </option>
                                                                 <option>RPL</option>
                                                                 <option>PERHOTELAN</option>
                                                             </select>
