@@ -57,7 +57,7 @@
                                             <td>{{ $gr->tlp }}</td>
                                             <td>{{ $gr->pend_terakhir }}</td>
                                             <td>
-                                                @empty($gr->nuptk)
+                                                @empty($gr->foto)
                                                     -
                                                 @endempty
                                                 <img src="{{ asset('Foto_guru/' . $gr->foto) }}" alt=""

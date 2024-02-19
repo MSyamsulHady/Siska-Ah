@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id('id_siswa');
-            $table->string('nisn')->default('text');
-            $table->string('nis')->default('text');
-            $table->string('nik')->default('text');
-            $table->string('nama')->default('text');
-            $table->string('alamat')->default('text');
+            $table->string('nisn');
+            $table->string('nis');
+            $table->string('nik');
+            $table->string('nama');
+            $table->string('alamat');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->date('tanggal_lahir');
-            $table->string('orang_tua')->default('text');
-            $table->string('nohp_ortu', 15)->nullable()->default('text');
-            $table->enum('jurusam', ['RPL', 'Perhotelan']);
+            $table->string('orang_tua');
+            $table->string('nohp_ortu', 15)->nullable();
+            $table->enum('jurusan', ['RPL', 'Perhotelan']);
             $table->string('foto')->nullable();
             $table->timestamps();
         });
