@@ -41,9 +41,10 @@ class GuruController extends Controller
                 $ext = $request->file('foto')->getClientOriginalExtension();
                 $name = Uuid::uuid4() . "." . $ext;
                 $request->file('foto')->move("Foto_guru/", $name);
+                $data->foto = $name;
             }
-            $data->foto = $name;
             $data->save();
+            // dd($data);
             return redirect('dataguru')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
             return redirect('dataguru')->with(['msg' => $e . 'Data Gagal Ditambah ', 'type' => 'error']);
