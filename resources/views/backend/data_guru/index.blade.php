@@ -70,10 +70,17 @@
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
-                                                    <button type="button" data-toggle="tooltip" title=""
-                                                        class="btn btn-link btn-danger" data-original-title="Hapus">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
+                                                    <form action="{{ route('delete_guru', $gr->id_guru) }}" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button type="button" data-toggle="" title=""
+                                                            class="btn btn-link btn-danger deletealert "
+                                                            data-id="{{ $gr->id_guru }}" data-nama="{{ $gr->nama }}"
+                                                            data-original-title="Hapus">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -278,7 +285,6 @@
                                 </div>
                                 <!-- End Modal Update -->
                             @endforeach
-
                         </div>
                     </div>
                 </div>

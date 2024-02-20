@@ -41,8 +41,9 @@ class GuruController extends Controller
                 $ext = $request->file('foto')->getClientOriginalExtension();
                 $name = Uuid::uuid4() . "." . $ext;
                 $request->file('foto')->move("Foto_guru/", $name);
+                $data->foto = $name;
             }
-            $data->foto = $name;
+
             $data->save();
             return redirect('dataguru')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
@@ -85,5 +86,16 @@ class GuruController extends Controller
         } catch (\Exception $e) {
             return redirect('dataguru')->with(['msg' => $e . 'Data Gagal Di rubah ', 'type' => 'error']);
         }
+    }
+    public function delete($id)
+    {
+
+        $data = Guru::findOrFail($id);
+        $file = public_path('/Foto_guru/') . $data->foto;
+        if (file_exists($file)) {
+            @unlink($file);
+        }
+        $data->delete();
+        return redirect('dataguru')->with(['msg' => 'Data Berhasi Di hapus !', 'type' => 'success']);
     }
 }

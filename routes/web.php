@@ -52,4 +52,5 @@ Route::controller(GuruController::class)->group(function () {
     Route::get('/dataguru', 'index')->name('dataguru');
     Route::post('/insert_guru', 'tambah_guru')->name('insert_guru');
     Route::put('/dataguru/update/{id}', 'edit_guru');
+    Route::delete('/dataguru/delete/{id}', 'delete')->name('delete_guru');
 });

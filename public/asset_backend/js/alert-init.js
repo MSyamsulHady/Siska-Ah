@@ -5,3 +5,4 @@ if (msg.attr('data-msg')) {
         icon: msg.attr('data-type'),
       });
 }
+ 
