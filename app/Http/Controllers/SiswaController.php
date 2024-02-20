@@ -37,15 +37,16 @@ class SiswaController extends Controller
             $data->gender = $request->gender;
             $data->tanggal_lahir = $request->tgl_lahir;
             $data->orang_tua = $request->orang_tua;
-            $data->nohp_ortu = $request->no_hp;
+            $data->nohp_ortu = $request->nohp_ortu;
             $data->jurusan = $request->jurusan;
             if ($request->hasFile('foto')) {
                 $ext = $request->file('foto')->getClientOriginalExtension();
                 $name = Uuid::uuid4() . "." . $ext;
                 $request->file('foto')->move("Foto_Siswa/", $name);
+                $data->foto = $name;
             }
-            $data->foto = $name;
             $data->save();
+            // dd($data);
             return redirect('datasiswa')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
         } catch (\Exception $e) {
             return redirect('datasiswa')->with(['msg' => 'Data  Gagal Ditambah', 'type' => 'error']);
