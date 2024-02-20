@@ -47,6 +47,7 @@ Route::controller(PelajaranController::class)->group(function () {
 Route::controller(SiswaController::class)->group(function () {
 
     Route::get('/datasiswa', 'index')->name('datasiswa');
+    Route::post('/datasiswa/insert_siswa', 'tambahSiswa')->name('insert_siswa');
 });
 Route::controller(GuruController::class)->group(function () {
     Route::get('/dataguru', 'index')->name('dataguru');
