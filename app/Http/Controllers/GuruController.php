@@ -99,3 +99,4 @@ class GuruController extends Controller
         return redirect('dataguru')->with(['msg' => 'Data Berhasi Di hapus !', 'type' => 'success']);
     }
 }
+    

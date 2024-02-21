@@ -45,9 +45,10 @@ Route::controller(PelajaranController::class)->group(function () {
     Route::get('/mapel', 'index')->name('mapel');
 });
 Route::controller(SiswaController::class)->group(function () {
-
     Route::get('/datasiswa', 'index')->name('datasiswa');
     Route::post('/datasiswa/insert_siswa', 'tambahSiswa')->name('insert_siswa');
+    Route::put('/datasiswa/update/{id}', 'editsiswa')->name('update_siswa');
+    Route::delete('/datasiswa/delete/{id}','deletesiswa')->name('delete_siswa');
 });
 Route::controller(GuruController::class)->group(function () {
     Route::get('/dataguru', 'index')->name('dataguru');

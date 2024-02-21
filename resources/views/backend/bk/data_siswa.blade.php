@@ -53,11 +53,17 @@
                                             <td>{{ $sw->nama }}</td>
                                             <td>{{ $sw->alamat }}</td>
                                             <td>{{ $sw->gender }}</td>
-                                            <td>{{ $sw->tgl_lahir }}</td>
+                                            <td>{{ $sw->tanggal_lahir }}</td>
                                             <td>{{ $sw->orang_tua }}</td>
                                             <td>{{ $sw->nohp_ortu }}</td>
                                             <td>{{ $sw->jurusan }}</td>
-                                            <td>{{ $sw->foto }}</td>
+                                            <td>
+                                                @empty($sw->foto)
+                                                    -
+                                                @endempty
+                                                <img src="{{ asset('Foto_Siswa/' . $sw->foto) }}" alt=""
+                                                    width="50">
+                                            </td>
                                             <td>
                                                 <div class="form-button-action">
                                                     <button type="button" data-toggle="modal"
@@ -65,10 +71,17 @@
                                                         class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>
-                                                    <button type="button" data-toggle="tooltip" title=""
-                                                        class="btn btn-link btn-danger" data-original-title="Hapus">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
+                                                    <form action="{{ route('delete_siswa', $sw->id_siswa) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="button" data-toggle="" title=""
+                                                            data-id="{{ $sw->id_siswa }}" data-nama="{{ $sw->nama }}"
+                                                            class="btn btn-link btn-danger deletealertsiswa"
+                                                            data-original-title="Hapus">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -94,13 +107,23 @@
                                                     <div class="col-lg">
                                                         <div class="form-group">
                                                             <label for="nisn">NISN</label>
-                                                            <input type="text" class="form-control" id="nisn"
-                                                                name="nisn" placeholder="NISN">
+                                                            <input type="text"
+                                                                class="form-control @error('nisn')  is-invalid
+                                                            @enderror"
+                                                                id="nisn" name="nisn" placeholder="NISN">
+                                                            @error('nisn')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="nama">Nama Lengkap</label>
-                                                            <input type="text" class="form-control" id="nama"
-                                                                name="nama" placeholder="Nama Lengkap">
+                                                            <input type="text"
+                                                                class="form-control @error('nama')is-invalid
+                                                            @enderror"
+                                                                id="nama" name="nama" placeholder="Nama Lengkap">
+                                                            @error('nama')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-check">
                                                             <label>Jenis Kelamin</label><br />
@@ -117,33 +140,70 @@
                                                         </div>
                                                         <div class="form-group mt-3">
                                                             <label for="orang_tua">Nama Orang Tua / Wali</label>
-                                                            <input type="text" class="form-control" name="orang_tua"
-                                                                placeholder="Nama Orang tua / wali">
+                                                            <input type="text"
+                                                                class="form-control @error('orang_tua')
+                                                            @enderror"
+                                                                name="orang_tua" placeholder="Nama Orang tua / wali">
+                                                            @error('orang_tua')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Foto</label>
-                                                            <input type="file" class="form-control-file" name="foto"
-                                                                accept="image/*">
+                                                            <input type="file"
+                                                                class="form-control-file @error('foto')
+                                                            is-invalid
+                                                            @enderror"
+                                                                name="foto" accept="image/*">
+                                                            @error('foto')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col ">
                                                         <div class="form-group">
                                                             <label for="nis">NIS</label>
-                                                            <input type="text" class="form-control" id="nis"
-                                                                name="nis" placeholder="NIS">
+                                                            <input type="text"
+                                                                class="form-control @error('nis')
+                                                                    is-invalid
+                                                            @enderror"
+                                                                id="nis" name="nis" placeholder="NIS">
+                                                            @error('nis')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="no_kk">NIK</label>
-                                                            <input type="text" class="form-control" name="nik"
-                                                                placeholder="NIK">
+                                                            <input type="text"
+                                                                class="form-control @error('nik')
+                                                                is-invalid
+                                                            @enderror "
+                                                                name="nik" placeholder="NIK">
+                                                            @error('nik')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Tanggal Lahir</label>
-                                                            <input type="date" class="form-control" name="tgl_lahit">
+                                                            <input type="date"
+                                                                class="form-control @error('tanggal_lahir')
+                                                            is-invalid
+                                                            @enderror"
+                                                                name="tanggal_lahir">
+                                                            @error('tanggal_lahir')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Jurusan</label>
-                                                            <select class="form-control" name="jurusan">
+                                                            <select
+                                                                class="form-control @error('jurusan')
+                                                            is-invalid
+                                                            @enderror"
+                                                                name="jurusan">
+                                                                @error('jurusan')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
                                                                 <option selected> -- Pilih -- </option>
                                                                 <option>RPL</option>
                                                                 <option>Perhotelan</option>
@@ -151,8 +211,14 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="nohp_ortu">No HP</label>
-                                                            <input type="text" class="form-control" id="nohp_ortu"
-                                                                name="nohp_ortu" placeholder="No HP">
+                                                            <input type="text"
+                                                                class="form-control @error('nohp_ortu')
+                                                            is-invalid
+                                                            @enderror"
+                                                                id="nohp_ortu" name="nohp_ortu" placeholder="No HP">
+                                                            @error('nohp_ortu')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,7 +226,13 @@
                                                     <div class="col-lg">
                                                         <div class="form-group">
                                                             <label for="">Alamat</label>
-                                                            <textarea name="alamat" id="" class="form-control"></textarea>
+                                                            <textarea name="alamat" id=""
+                                                                class="form-control @error('alamat')
+                                                            is-invalid
+                                                            @enderror"></textarea>
+                                                            @error('alamat')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -175,6 +247,190 @@
                                 </div>
                             </div>
                             <!-- End Modal -->
+
+                            @foreach ($siswa as $sis)
+                                <!-- Modal update -->
+                                <div class="modal fade bd-example-modal-lg" id="ModalEdit{{ $sis->id_siswa }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Data Siswa</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="{{ route('update_siswa', $sis->id_siswa) }}" method="POST"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('put')
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <div class="form-group">
+                                                                <label for="nisn">NISN</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('nisn')  is-invalid
+                                                                    @enderror"
+                                                                    id="nisn" name="nisn" placeholder="NISN"
+                                                                    value="{{ $sis->nisn }}">
+                                                                @error('nisn')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="nama">Nama Lengkap</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('nama')is-invalid
+                                                                      @enderror"
+                                                                    id="nama" name="nama"
+                                                                    placeholder="Nama Lengkap"
+                                                                    value="{{ $sis->nama }}">
+                                                                @error('nama')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <label>Jenis Kelamin</label><br />
+                                                                <label class="form-radio-label">
+                                                                    <input class="form-radio-input" type="radio"
+                                                                        name="gender" value="laki-laki"
+                                                                        {{ $sis->gender == 'laki-laki' ? 'checked' : '' }}>
+                                                                    <span class="form-radio-sign">Laki-Laki</span>
+                                                                </label>
+                                                                <label class="form-radio-label ml-3">
+                                                                    <input class="form-radio-input" type="radio"
+                                                                        name="gender" value="perempuan"
+                                                                        {{ $sis->gender == 'perempuan' ? 'checked' : '' }}>
+                                                                    <span class="form-radio-sign">Perempuan</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group mt-3">
+                                                                <label for="orang_tua">Nama Orang Tua / Wali</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('orang_tua')
+                                                                     @enderror"
+                                                                    name="orang_tua" placeholder="Nama Orang tua / wali"
+                                                                    value="{{ $sis->orang_tua }}">
+                                                                @error('orang_tua')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Foto</label>
+                                                                <input type="file"
+                                                                    class="form-control-file @error('foto')
+                                                                      is-invalid
+                                                                    @enderror"
+                                                                    name="foto" accept="image/*">
+                                                                @error('foto')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                                <div class="col">
+                                                                    <img src="{{ asset('Foto_Siswa/' . $sis->foto) }}"
+                                                                        width="150px" height="auto" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col ">
+                                                            <div class="form-group">
+                                                                <label for="nis">NIS</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('nis')
+                                                                            is-invalid
+                                                                    @enderror"
+                                                                    id="nis" name="nis"
+                                                                    placeholder="NIS"value="{{ $sis->nis }}">
+                                                                @error('nis')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="no_kk">NIK</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('nik')
+                                                                        is-invalid
+                                                                    @enderror "
+                                                                    name="nik" placeholder="NIK"
+                                                                    value="{{ $sis->nik }}">
+                                                                @error('nik')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Tanggal Lahir</label>
+                                                                <input type="date"
+                                                                    class="form-control @error('tanggal_lahir')
+                                                                    is-invalid
+                                                                    @enderror"
+                                                                    name="tanggal_lahir"
+                                                                    value="{{ $sis->tanggal_lahir }}">
+                                                                @error('tanggal_lahir')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="">Jurusan</label>
+                                                                <select
+                                                                    class="form-control @error('jurusan')
+                                                                    is-invalid
+                                                                    @enderror"
+                                                                    name="jurusan">
+                                                                    @error('jurusan')
+                                                                        <span
+                                                                            class="invalid-feedback">{{ $message }}</span>
+                                                                    @enderror
+                                                                    <option selected value="{{ $sis->jurusan }}">
+                                                                        {{ $sis->jurusan }}</option>
+                                                                    <option>RPL</option>
+                                                                    <option>Perhotelan</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="nohp_ortu">No HP</label>
+                                                                <input type="text"
+                                                                    class="form-control @error('nohp_ortu')
+                                                                is-invalid
+                                                                @enderror"
+                                                                    id="nohp_ortu" name="nohp_ortu" placeholder="No HP"
+                                                                    value="nohp_ortu">
+                                                                @error('nohp_ortu')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <div class="form-group">
+                                                                <label for="">Alamat</label>
+                                                                <textarea name="alamat" id=""
+                                                                    class="form-control @error('alamat')
+                                                                is-invalid
+                                                                @enderror">{{ $sis->alamat }}</textarea>
+                                                                @error('alamat')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal -->
+                            @endforeach
+
+
+
                         </div>
                     </div>
                 </div>

@@ -647,6 +647,27 @@
             });
         });
     </script>
+
+    <script>
+        $('.deletealertsiswa').click(function(e) {
+            var id_siswa = $(this).attr('data-id');
+            var form = $(this).closest("form");
+            var nama = $(this).attr('data-nama')
+            Swal.fire({
+                title: "Apakah Anda Yakin menghapus " + nama + " ",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya."
+            }).then((deleteguru) => {
+                if (deleteguru.isConfirmed) {
+                    form.submit();
+                    icon: "success"
+                }
+            });
+        });
+    </script>
     <!-- Owl Carousel -->
     <script src="{{ asset('asset_backend') }}/js/plugin/owl-carousel/owl.carousel.min.js"></script>
 
