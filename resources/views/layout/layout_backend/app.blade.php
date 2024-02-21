@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <title>Dashboard | Al- Hasanain</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="{{ asset('asset_backend') }}/img/logo/ah.png" type="image/x-icon" />
@@ -750,7 +751,7 @@
             fillColor: 'rgba(255, 165, 52, .14)'
         });
     </script>
-    <script src="{{ asset('asset_backend/js/table.init.js') }}"></script>
+
 </body>
 
 </html>
