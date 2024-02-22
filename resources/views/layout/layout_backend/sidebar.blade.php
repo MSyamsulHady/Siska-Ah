@@ -80,6 +80,12 @@
                         <p>Data Guru</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->is('semester') ? 'active' : '' }}">
+                    <a href="{{ route('semester') }}">
+                        <i class="fas fa-database"></i>
+                        <p>Data Guru</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
