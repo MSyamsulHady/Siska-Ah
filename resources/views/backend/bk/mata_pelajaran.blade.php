@@ -31,12 +31,44 @@
                                         <th>No</th>
                                         <th>Mata Pelajaran</th>
                                         <th>Pengajar</th>
-                                        <th>Kelas</th>
                                         <th>Kategori</th>
-                                        <th>Jurusan</th>
+                                        <th>Kurikulum</th>
                                         <th>#Action</th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach ($pelajaran as $pel)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $pel->nama_mapel }}</td>
+                                            <td>
+                                                @foreach ($pel->guru as $gr)
+                                                    {{ $gr->nama }}
+                                                @endforeach
+                                            </td>
+                                            <td>{{ $pel->katagori }}</td>
+                                            <td>{{ $pel->kurikulum }}</td>
+                                            <td>
+                                                <div class="form-button-action">
+                                                    <button type="button" data-toggle="modal"
+                                                        data-target="#ModalEdit{{ $pel->id_mapel }}" title=""
+                                                        class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <form action="" method="POST">
+                                                        @csrf
+                                                        @method('okus')
+                                                        <button type="button" data-toggle="" title="" data-id=""
+                                                            data-nama="" class="btn btn-link btn-danger deletealertsiswa"
+                                                            data-original-title="Hapus">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                             <!-- Button trigger modal -->
 
@@ -47,38 +79,179 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Form tambah Pelajaran</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form action="{{ route('mapelinsert') }}" method="POST">
+                                                @csrf
                                                 <div class="row">
                                                     <div class="col-lg">
-                                                        <label for="">
-                                                            <h5>NISN</h5>
+                                                        <label for="nama_mapel">
+                                                            <h5>Mata Pelajaran</h5>
                                                         </label>
-                                                        <input type="text" class="form-control" placeholder="NISN"><br>
-                                                        <input type="text" class="form-control" placeholder="NIS"><br>
-                                                        <input type="text" class="form-control" placeholder="No KK"><br>
-                                                        <input type="text" class="form-control"
-                                                            placeholder="Nama Lengkap">
+                                                        <input type="text"
+                                                            class="form-control @error('nama_mapel')
+                                                        is-invalid
+                                                        @enderror"
+                                                            placeholder="Mata Pelajaran" name="nama_mapel"><br>
+                                                        @error('nama_mapel')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                        <label for="nama_mapel">
+                                                            <h5>Pengajar</h5>
+                                                        </label>
+                                                        <select class="custom-select" id="inputGroupSelect02"
+                                                            name="id_guru">
+                                                            <option selected> --pilih Guru--
+                                                            </option>
+                                                            @foreach ($guru as $gr)
+                                                                <option value="{{ $gr->id_guru }}">
+                                                                    {{ $gr->nama }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('id_guru')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
+                                                        <label for="">Katagori</label>
+                                                        <select
+                                                            class="form-control @error('katagori')
+                                                            is-invalid
+                                                            @enderror"
+                                                            name="katagori">
+                                                            @error('katagori')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                            <option selected> -- Pilih -- </option>
+                                                            <option>Muatan Nasional</option>
+                                                            <option>Muatan Kewilayahan</option>
+                                                            <option>Muatan Kejuruan</option>
+                                                        </select>
+                                                        <br>
+                                                        <label for="">kurikulum</label>
+                                                        <select
+                                                            class="form-control @error('kurikulum')
+                                                            is-invalid
+                                                            @enderror"
+                                                            name="kurikulum">
+                                                            @error('kurikulum')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                            <option selected> -- Pilih -- </option>
+                                                            <option>K-13</option>
+                                                            <option>Merdeka</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="col">
-                                                        <input type="text" class="form-control" placeholder="Last name">
-                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Tutup</button>
-                                            <button type="button" class="btn btn-primary">Simpan</button>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
+                            <!-- End Modal -->
+
+                            <!-- Modal Update -->
+                            @foreach ($pelajaran as $pl)
+                                <div class="modal fade bd-example-modal-lg" id="ModalEdit{{ $pl->id_mapel }}"
+                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Form Edit Pelajaran</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('updatemapel', $pl->id_mapel) }}" method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <div class="row">
+                                                        <div class="col-lg">
+                                                            <label for="nama_mapel">
+                                                                <h5>Mata Pelajaran</h5>
+                                                            </label>
+                                                            <input type="text"
+                                                                class="form-control @error('nama_mapel')
+                                                        is-invalid
+                                                        @enderror"
+                                                                placeholder="Mata Pelajaran" name="nama_mapel"
+                                                                value="{{ $pl->nama_mapel }}"><br>
+                                                            @error('nama_mapel')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                            <label for="nama_mapel">
+                                                                <h5>Pengajar</h5>
+                                                            </label>
+                                                            <select class="custom-select" id="inputGroupSelect02"
+                                                                name="id_guru">
+
+                                                                <option selected value="{{ $gr->id_guru }}">
+                                                                    {{ $gr->nama }}</option>
+                                                                @foreach ($pel->guru as $gr)
+                                                                    <option value="{{ $pel->guru->nama }}">
+                                                                        {{ $gr->nama }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                            <br>
+                                                            @error('id_guru')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                            <label for="">Katagori</label>
+                                                            <select
+                                                                class="form-control @error('katagori')
+                                                            is-invalid
+                                                            @enderror"
+                                                                name="katagori">
+                                                                @error('katagori')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                                <option selected value="{{ $pl->katagori }}">
+                                                                    {{ $pl->katagori }}</option>
+                                                                <option>Muatan Nasional</option>
+                                                                <option>Muatan Kewilayahan</option>
+                                                                <option>Muatan Kejuruan</option>
+                                                            </select>
+                                                            <br>
+                                                            <label for="">kurikulum</label>
+                                                            <select
+                                                                class="form-control @error('kurikulum')
+                                                            is-invalid
+                                                            @enderror"
+                                                                name="kurikulum">
+                                                                @error('kurikulum')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                @enderror
+                                                                <option selected value="{{ $pl->kurikulum }}">
+                                                                    {{ $pl->kurikulum }}</option>
+                                                                <option>K-13</option>
+                                                                <option>Merdeka</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                             <!-- End Modal -->
                         </div>
                     </div>
