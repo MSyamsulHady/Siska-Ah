@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('semesters', function (Blueprint $table) {
             $table->id('id_semester');
             $table->string('nama_semester', 100)->unique()->default('text');
-            $table->enum('status', ['Aktif', 'Tidak_Aktif']);
+            $table->enum('status', ['Aktif', 'Tidak Aktif']);
             $table->timestamps();
         });
     }

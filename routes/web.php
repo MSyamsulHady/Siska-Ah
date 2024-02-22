@@ -4,6 +4,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,11 +49,15 @@ Route::controller(SiswaController::class)->group(function () {
     Route::get('/datasiswa', 'index')->name('datasiswa');
     Route::post('/datasiswa/insert_siswa', 'tambahSiswa')->name('insert_siswa');
     Route::put('/datasiswa/update/{id}', 'editsiswa')->name('update_siswa');
-    Route::delete('/datasiswa/delete/{id}','deletesiswa')->name('delete_siswa');
+    Route::delete('/datasiswa/delete/{id}', 'deletesiswa')->name('delete_siswa');
 });
 Route::controller(GuruController::class)->group(function () {
     Route::get('/dataguru', 'index')->name('dataguru');
     Route::post('/insert_guru', 'tambah_guru')->name('insert_guru');
     Route::put('/dataguru/update/{id}', 'edit_guru');
     Route::delete('/dataguru/delete/{id}', 'delete')->name('delete_guru');
+});
+Route::controller(SemesterController::class)->group(function () {
+    Route::get('/semester', 'index')->name('semester');
+    Route::post('/semester/insert', 'insertSemester')->name('insert_semester');
 });
