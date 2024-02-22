@@ -71,7 +71,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form action="insert_semester" method="POST">
+                                    <form action="{{ route('insert_semester') }}" method="POST">
                                         @csrf
                                         <div class="modal-body">
                                             <div class="row">
@@ -113,6 +113,66 @@
                             </div>
                         </div>
                         {{-- end modal Add --}}
+
+                        {{-- Modal Update --}}
+                        @foreach ($semester as $smtr)
+                            <div class="modal fade " id="ModalEdit{{ $smtr->id_semester }}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Input Semester</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('update_semester', $smtr->id_semester) }}" method="POST">
+                                            @csrf
+                                            @method('put')
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-lg">
+                                                        <div class="form-group">
+                                                            <label for="nama_semester">semester</label>
+                                                            <input type="text"
+                                                                class="form-control @error('nama_semester')  is-invalid
+                                                        @enderror"
+                                                                id="nama_semester" name="nama_semester"
+                                                                placeholder="nama_semester"
+                                                                value="{{ $smtr->nama_semester }}">
+                                                            @error('semester')
+                                                                <span class="invalid-feedback">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <label>Status</label><br />
+                                                            <label class="form-radio-label">
+                                                                <input class="form-radio-input" type="radio"
+                                                                    name="status" value="Aktif"
+                                                                    {{ $smtr->status == 'Aktif' ? 'checked' : '' }}>
+                                                                <span class="form-radio-sign">Aktif</span>
+                                                            </label>
+                                                            <label class="form-radio-label ml-3">
+                                                                <input class="form-radio-input" type="radio"
+                                                                    name="status" value="Tidak Aktif"
+                                                                    {{ $smtr->status == 'Tidak Aktif' ? 'checked' : '' }}>
+                                                                <span class="form-radio-sign">Tidak Aktif</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        {{-- Modal Update --}}
                     </div>
                 </div>
             </div>

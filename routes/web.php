@@ -59,5 +59,6 @@ Route::controller(GuruController::class)->group(function () {
 });
 Route::controller(SemesterController::class)->group(function () {
     Route::get('/semester', 'index')->name('semester');
-    Route::post('/semester/insert', 'insertSemester')->name('insert_semester');
+    Route::post('/insert_semester', 'insertSemester')->name('insert_semester');
+    Route::put('/semester/update/{id}', 'updateSemester')->name('update_semester');
 });
