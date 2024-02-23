@@ -41,11 +41,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $pel->nama_mapel }}</td>
-                                            <td>
-                                                @foreach ($pel->guru as $gr)
-                                                    {{ $gr->nama }}
-                                                @endforeach
-                                            </td>
+                                            <td>{{ $pel->guru->nama }}</td>
                                             <td>{{ $pel->katagori }}</td>
                                             <td>{{ $pel->kurikulum }}</td>
                                             <td>
@@ -196,11 +192,11 @@
                                                             <select class="custom-select" id="inputGroupSelect02"
                                                                 name="id_guru">
 
-                                                                <option selected value="{{ $gr->id_guru }}">
-                                                                    {{ $gr->nama }}</option>
-                                                                @foreach ($pel->guru as $gr)
-                                                                    <option value="{{ $pel->guru->nama }}">
-                                                                        {{ $gr->nama }}
+                                                                <option selected value="{{ $pl->id_guru }}">
+                                                                    {{ $pl->guru->nama }}</option>
+                                                                @foreach ($guru as $gp)
+                                                                    <option value="{{ $gp->id_guru }}">
+                                                                        {{ $gp->nama }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>

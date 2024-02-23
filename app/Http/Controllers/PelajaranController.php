@@ -58,8 +58,7 @@ class PelajaranController extends Controller
             $data->katagori = $request->katagori;
             $data->kurikulum = $request->kurikulum;
             $data->save();
-
-            return redirect('updatemapel')->with(['msg' => 'Data Berhasil Ditambah', 'type' => 'success']);
+            return redirect('mapel')->with(['msg' => 'Data Berhasil Diubah', 'type' => 'success']);
         } catch (\Exception $e) {
         }
     }

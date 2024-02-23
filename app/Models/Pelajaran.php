@@ -17,6 +17,6 @@ class Pelajaran extends Model
 
     public function guru()
     {
-        return $this->hasMany(Guru::class, 'id_guru', 'id_guru');
+        return $this->hasOne(Guru::class, 'id_guru', 'id_guru');
     }
 }
