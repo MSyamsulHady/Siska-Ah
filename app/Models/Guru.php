@@ -16,4 +16,9 @@ class Guru extends Model
     {
         return $this->belongsTo(Pelajaran::class, 'id_mapel');
     }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
 }

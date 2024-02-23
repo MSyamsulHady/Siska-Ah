@@ -3,6 +3,7 @@
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\SemesterController;
 use App\Http\Controllers\SiswaController;
@@ -63,4 +64,8 @@ Route::controller(SemesterController::class)->group(function () {
     Route::get('/semester', 'index')->name('semester');
     Route::post('/insert_semester', 'insertSemester')->name('insert_semester');
     Route::put('/semester/update/{id}', 'updateSemester')->name('update_semester');
+});
+Route::controller(KelasController::class)->group(function () {
+    Route::get('/kelas', 'index')->name('datakelas');
+    Route::post('/insert_kelas', 'inserKelas')->name('insertKelas');
 });

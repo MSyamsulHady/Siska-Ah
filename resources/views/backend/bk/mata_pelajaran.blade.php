@@ -195,11 +195,11 @@
                                                             </label>
                                                             <select class="custom-select" id="inputGroupSelect02"
                                                                 name="id_guru">
-
-                                                                <option selected value="{{ $gr->id_guru }}">
-                                                                    {{ $gr->nama }}</option>
                                                                 @foreach ($pel->guru as $gr)
-                                                                    <option value="{{ $pel->guru->nama }}">
+                                                                    <option selected value="{{ $gr->nama }}">
+                                                                        {{ $gr->nama }}</option>
+
+                                                                    <option value="{{ $gr->nama }}">
                                                                         {{ $gr->nama }}
                                                                     </option>
                                                                 @endforeach

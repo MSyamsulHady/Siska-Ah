@@ -83,7 +83,13 @@
                 <li class="nav-item {{ request()->is('semester') ? 'active' : '' }}">
                     <a href="{{ route('semester') }}">
                         <i class="fas fa-database"></i>
-                        <p>Data Guru</p>
+                        <p>Semester</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->is('kelas') ? 'active' : '' }}">
+                    <a href="{{ route('datakelas') }}">
+                        <i class="fas fa-database"></i>
+                        <p>Kelas</p>
                     </a>
                 </li>
             </ul>
