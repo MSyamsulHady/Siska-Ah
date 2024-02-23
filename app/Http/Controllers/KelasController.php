@@ -31,7 +31,7 @@ class KelasController extends Controller
             $data->id_semester = $request->id_semester;
             $data->ruangan = $request->ruangan;
             $data->save();
-            return redirect('datakelas')->with(['msg' => 'Data Berhasil Disimpan', 'type' => 'success']);
+            return redirect('/kelas')->with(['msg' => 'Data Berhasil Disimpan', 'type' => 'success']);
         } catch (\Exception $e) {
         }
     }
