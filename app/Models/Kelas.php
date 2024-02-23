@@ -17,10 +17,10 @@ class Kelas extends Model
 
     public function guru()
     {
-        return $this->hasOne(Guru::class, 'id_guru', 'id_guru');
+        return $this->hasOne(Guru::class, 'id_guru');
     }
     public function semester()
     {
-        return $this->hasOne(Semester::class, 'id_semester', 'id_semester');
+        return $this->hasOne(Semester::class, 'id_semester');
     }
 }
