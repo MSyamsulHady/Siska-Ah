@@ -24,7 +24,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>pengajar</th>
+                                        <th>Wali Kelas</th>
                                         <th>Nama Kelas</th>
                                         <th>Semester</th>
                                         <th>Ruangan</th>
@@ -32,7 +32,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach ($kelas as $kls)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $kls->guru->nama }}</td>
+                                            <td>{{ $kls->nama_kelas }}</td>
+                                            <td>{{ $kls->semester->nama_semester }}</td>
+                                            <td>{{ $kls->ruangan }}</td>
+                                            <td>
+                                                <div class="form-button-action">
+                                                    <button type="button" data-toggle="modal"
+                                                        data-target="#ModalEdit{{ $kls->id_kelas }}" title=""
+                                                        class="btn btn-link btn-primary btn-lg" data-original-title="Edit ">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -47,34 +63,60 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form action="{{ }}" method="POST">
+                                    <form action="{{ route('insertKelas') }}" method="POST">
                                         @csrf
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-lg">
                                                     <div class="form-group">
-                                                        <label for="nama_semester">Kelas</label>
+                                                        <label for="nama_mapel">
+                                                            <h5>Wali Kelas</h5>
+                                                        </label>
+                                                        <select class="custom-select" id="inputGroupSelect02"
+                                                            name="id_guru">
+                                                            <option selected> --pilih Guru--
+                                                            </option>
+                                                            @foreach ($guru as $gr)
+                                                                <option value="{{ $gr->id_guru }}">
+                                                                    {{ $gr->nama }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nama_kelas">Kelas</label>
                                                         <input type="text"
-                                                            class="form-control @error('nama_semester')  is-invalid
+                                                            class="form-control @error('nama_kelas')  is-invalid
                                                             @enderror"
-                                                            id="nama_semester" name="nama_semester"
-                                                            placeholder="nama_semester">
-                                                        @error('semester')
+                                                            id="nama_kelas" name="nama_kelas" placeholder="nama_kelas">
+                                                        @error('nama_kelas')
                                                             <span class="invalid-feedback">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                                    <div class="form-check">
-                                                        <label>Status</label><br />
-                                                        <label class="form-radio-label">
-                                                            <input class="form-radio-input" type="radio" name="status"
-                                                                value="Aktif">
-                                                            <span class="form-radio-sign">Aktif</span>
+                                                    <div class="form-group">
+                                                        <label for="nama_mapel">
+                                                            <h5>Semester</h5>
                                                         </label>
-                                                        <label class="form-radio-label ml-3">
-                                                            <input class="form-radio-input" type="radio" name="status"
-                                                                value="Tidak Aktif">
-                                                            <span class="form-radio-sign">Tidak Aktif</span>
-                                                        </label>
+                                                        <select class="custom-select" id="inputGroupSelect02"
+                                                            name="id_semester">
+                                                            <option selected> --pilih semester--
+                                                            </option>
+                                                            @foreach ($semester as $smtr)
+                                                                <option value="{{ $smtr->id_semester }}">
+                                                                    {{ $smtr->nama_semester }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="ruangan">Kelas</label>
+                                                        <input type="text"
+                                                            class="form-control @error('ruangan')  is-invalid
+                                                            @enderror"
+                                                            id="ruangan" name="ruangan" placeholder="ruangan">
+                                                        @error('ruangan')
+                                                            <span class="invalid-feedback">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,7 +133,7 @@
                         {{-- end modal Add --}}
 
                         {{-- Modal Update --}}
-                        @foreach ($semester as $smtr)
+                        {{-- @foreach ($semester as $smtr)
                             <div class="modal fade " id="ModalEdit{{ $smtr->id_semester }}" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -147,8 +189,8 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                        Modal Update
+                        @endforeach --}}
+                        {{-- Modal Update --}}
                     </div>
                 </div>
             </div>

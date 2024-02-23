@@ -9,4 +9,9 @@ class Semester extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_semester';
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
 }
