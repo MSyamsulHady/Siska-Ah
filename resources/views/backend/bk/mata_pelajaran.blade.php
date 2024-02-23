@@ -41,11 +41,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $pel->nama_mapel }}</td>
-                                            <td>
-                                                @foreach ($pel->guru as $gr)
-                                                    {{ $gr->nama }}
-                                                @endforeach
-                                            </td>
+                                            <td>{{ $pel->guru->nama }}</td>
                                             <td>{{ $pel->katagori }}</td>
                                             <td>{{ $pel->kurikulum }}</td>
                                             <td>
@@ -195,12 +191,12 @@
                                                             </label>
                                                             <select class="custom-select" id="inputGroupSelect02"
                                                                 name="id_guru">
-                                                                @foreach ($pel->guru as $gr)
-                                                                    <option selected value="{{ $gr->nama }}">
-                                                                        {{ $gr->nama }}</option>
 
-                                                                    <option value="{{ $gr->nama }}">
-                                                                        {{ $gr->nama }}
+                                                                <option selected value="{{ $pl->id_guru }}">
+                                                                    {{ $pl->guru->nama }}</option>
+                                                                @foreach ($guru as $gp)
+                                                                    <option value="{{ $gp->id_guru }}">
+                                                                        {{ $gp->nama }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
